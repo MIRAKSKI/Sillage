@@ -52,8 +52,29 @@ body {margin: 0px;padding: 0px;display: flex;justify-content: center;}
   85.8% { transform: rotateZ(-2deg)}
   100% { transform: rotateZ(0deg)}
 }
+@-webkit-keyframes gradientBG {
+  0% {background-image: linear-gradient(54deg, red, orange, yellow, green, blue, indigo, violet);}
+  14.3% {background-image: linear-gradient(54deg, orange, yellow, green, blue, indigo, violet, red);}
+  28.6% {background-image: linear-gradient(54deg, yellow, green, blue, indigo, violet, red, orange);}
+  42.9% {background-image: linear-gradient(54deg, green, blue, indigo, violet, red, orange, yellow);}
+  57.2% {background-image: linear-gradient(54deg, blue, indigo, violet, red, orange, yellow, green);}
+  71.5% {background-image: linear-gradient(54deg, indigo, violet, red, orange, yellow, green, blue);}
+  85.8% {background-image: linear-gradient(54deg, violet, red, orange, yellow, green, blue, indigo);}
+  100% {background-image: linear-gradient(54deg, red, orange, yellow, green, blue, indigo, violet);}
+}
+@keyframes gradientBG {
+  from {
+    background-position: 0% 50%;
+  }
+  to{
+    background-position: 100% 50%;
+  }
+}
 .riseDown:nth-child(2) {transition-delay: 0.2s;}
-.envelope {position: fixed;top: 0;bottom: 0;left: 0;right: 0;z-index: 20;}
+.envelope {position: fixed;top: 0;bottom: 0;left: 0;right: 0;z-index: 20;background-color: #ac9e73;
+  animation: gradientBG 5s alternate;-webkit-animation: gradientBG 60s infinite;background-size: 700%;
+  background-image: linear-gradient(54deg, red, orange, yellow, green, blue, indigo, violet, red);
+}
 .paper {position: relative;width: 100%;height: 100%;}
 .envup {position: absolute;left: 0;right: 0;top: 0;width: 100%;height: 56.3%;}
 .envdown {position: absolute;left: 0;right: 0;bottom: 0;width: 100%;height: 51.5%;}

@@ -50,6 +50,7 @@ function StartEnvelope() {
   document.documentElement.scrollTop = 0;
   let segments = ["left", "right", "down", "up"];
   let envelope = creatanelemn(`div`, `envelope`, `envelope`, ``, ``, ``, ``, ``, "", ``, ``, ``);
+  /*
   if (hieght > width) {
     for (var i = 0; i < segments.length; i++) {
       let clas = "env" + segments[i];
@@ -71,6 +72,7 @@ function StartEnvelope() {
       envelope.appendChild(seg);
     }
   }
+  */
   let imgs = creatanelemn(`img`, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``);
   imgs.setAttribute("src", "envelope/stamp.png");
   let shold = creatanelemn(`div`, `stampholder`, ``, ``, ``, ``, ``, ``, imgs, ``, ``, ``);
