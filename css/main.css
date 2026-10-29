@@ -71,7 +71,9 @@ body {margin: 0px;padding: 0px;display: flex;justify-content: center;}
   }
 }
 .riseDown:nth-child(2) {transition-delay: 0.2s;}
-.envelope {position: fixed;top: 0;bottom: 0;left: 0;right: 0;z-index: 20;background-color: #ac9e73;
+.envelope {position: fixed;top: 0;bottom: 0;left: 0;right: 0;z-index: 20;}
+.envelopeTBG {
+  background-color: #ac9e73;
   animation: gradientBG 5s alternate;-webkit-animation: gradientBG 60s infinite;background-size: 700%;
   background-image: linear-gradient(54deg, red, orange, yellow, green, blue, indigo, violet, red);
 }

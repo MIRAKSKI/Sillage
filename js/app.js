@@ -49,7 +49,7 @@ function StartEnvelope() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
   let segments = ["left", "right", "down", "up"];
-  let envelope = creatanelemn(`div`, `envelope`, `envelope`, ``, ``, ``, ``, ``, "", ``, ``, ``);
+  let envelope = creatanelemn(`div`, `envelope envelopeTBG`, `envelope`, ``, ``, ``, ``, ``, "", ``, ``, ``);
   if (hieght > width) {
     for (var i = 0; i < segments.length; i++) {
       let clas = "env" + segments[i];
@@ -95,6 +95,7 @@ function enablescrollback() {
 function OpenEnvelope() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
+  document.getElementsByClassName('envelope')[0].classList.remove('envelopeTBG');
   gsap.to('#stamp', {opacity:0, scale:0.8, duration:0.3});
   gsap.to('.envup', {rotationX: -110, transformOrigin: "top center", duration:0.8});
   gsap.to('.envleft , .envdown , .envright', {y:50, opacity: 0, duration:0.7});
