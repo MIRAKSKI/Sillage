@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حفل زفاف آدم ولينا | The Sacred Garden</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c4a3e;
+            --gold-color: #d4af37;
+            --accent-gold: #f4e8c1;
+            --bg-color: #fcfbfa;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* شاشة الافتتاحية (الغلاف) */
+        #welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(44, 74, 62, 0.9), rgba(44, 74, 62, 0.95)), url('watermarked_img_8263861567869754200.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            transition: opacity 0.8s ease;
+        }
+
+        #welcome-overlay h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--gold-color);
+        }
+
+        #welcome-overlay p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .open-btn {
+            background-color: var(--gold-color);
+            color: #2c4a3e;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .open-btn:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* محتوى الموقع الرئيسي */
+        .main-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            box-shadow: 0 0 30px rgba(0,0,0,0.05);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* قسم الهيرو */
+        .hero-section {
+            background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.9)), url('watermarked_img_8263861567869754200.jpg') no-repeat center center/cover;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--gold-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .hero-section .date {
+            font-size: 1.3rem;
+            color: var(--gold-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-section .quote {
+            font-style: italic;
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* قسم العداد التنازلي */
+        .countdown-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .countdown-section h3 {
+            color: var(--gold-color);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .countdown-box {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 70px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .countdown-box span {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold-color);
+        }
+
+        .countdown-box label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* جدول الفعاليات */
+        .section {
+            padding: 50px 30px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--gold-color);
+            margin: 10px auto 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-time {
+            font-weight: 700;
+            color: var(--gold-color);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* تفاصيل المكان والتعليمات */
+        .info-card {
+            background-color: #f9f8f6;
+            border: 1px solid var(--accent-gold);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .info-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* نموذج الحضور RSVP */
+        .rsvp-form {
+            text-align: right;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold-color);
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--gold-color);
+            color: var(--primary-color);
+        }
+
+        /* التذييل */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شاشة الترحيب والغلاف -->
+    <div id="welcome-overlay">
+        <h1>حفل زفاف آدم ولينا</h1>
+        <p>يسعدنا دعوتكم لمشاركتنا فرحتنا</p>
+        <button class="open-btn" onclick="openInvitation()">اضغط لفتح الدعوة</button>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="main-container">
+
+        <!-- قسم الهيرو -->
+        <section class="hero-section">
+            <img src="watermarked_img_8597023194833668609.jpg" alt="شعار الدعوة" class="logo-img">
+            <h2>Adam & Lina</h2>
+            <div class="date">27 . 09 . 2026</div>
+            <p class="quote">"رَوحٌ ورَيحان وِصالٌ مبارك، نتشرف بحضوركم لنبدأ معاً أبدنا الأبدي."</p>
+        </section>
+
+        <!-- عداد تنازلي -->
+        <section class="countdown-section">
+            <h3>العد التنازلي للحفل الكبير</h3>
+            <div class="countdown-grid">
+                <div class="countdown-box">
+                    <span id="days">43</span>
+                    <label>يوم</label>
+                </div>
+                <div class="countdown-box">
+                    <span id="hours">23</span>
+                    <label>ساعة</label>
+                </div>
+                <div class="countdown-box">
+                    <span id="minutes">59</span>
+                    <label>دقيقة</label>
+                </div>
+                <div class="countdown-box">
+                    <span id="seconds">55</span>
+                    <label>ثانية</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- جدول الفعاليات -->
+        <section class="section">
+            <h3>برنامج الحفل</h3>
+            <div class="timeline-item">
+                <div class="timeline-time">05:00 مساءً</div>
+                <div class="timeline-title">استقبال الضيوف</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">06:00 مساءً</div>
+                <div class="timeline-title">مراسيم عقد القران</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">07:00 مساءً</div>
+                <div class="timeline-title">استراحة العصائر والمقبلات</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">08:00 مساءً</div>
+                <div class="timeline-title">مأدبة العشاء الفاخرة</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">09:00 مساءً</div>
+                <div class="timeline-title">بدء الاحتفال والفرح</div>
+            </div>
+        </section>
+
+        <!-- تفاصيل المكان والإرشادات -->
+        <section class="section" style="text-align: right;">
+            <h3>معلومات إضافية</h3>
+
+            <div class="info-card">
+                <h4>📍 موقع الحفل</h4>
+                <p>قاعة الحدائق الكبرى، شارع الياسمين، المدينة المنورة.</p>
+            </div>
+
+            <div class="info-card">
+                <h4>🎁 هدايا الحفل</h4>
+                <p>لطفاً، نعتذر عن قبول الهدايا المغلفة أو الصناديق، حضوركم هو أجمل هدية.</p>
+            </div>
+
+            <div class="info-card">
+                <h4>👔 اللباس المفضل</h4>
+                <p>نرجو من السادة الضيوف تجنب ارتداء اللون العنابي الداكن (Maroon) نظراً لتخصيصه لتنسيق الديكور.</p>
+            </div>
+        </section>
+
+        <!-- نموذج تأكيد الحضور RSVP -->
+        <section class="section">
+            <h3>تأكيد الحضور</h3>
+            <form class="rsvp-form" onsubmit="handleRSVP(event)">
+                <div class="form-group">
+                    <label for="name">الاسم الكريم:</label>
+                    <input type="text" id="name" required placeholder="أدخل اسمك الثلاثي">
+                </div>
+
+                <div class="form-group">
+                    <label for="attendance">هل ستحضر الحفل؟</label>
+                    <select id="attendance" required>
+                        <option value="yes">يسعدني الحضور بكل سرور</option>
+                        <option value="no">أعتذر لعدم التمكن من الحضور</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">عدد المرافقين:</label>
+                    <input type="number" id="guests" min="0" value="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="song">أغنية تود سماعها في الحفل:</label>
+                    <input type="text" id="song" placeholder="اسم الأغنية المفضلة">
+                </div>
+
+                <button type="submit" class="submit-btn">إرسال التأكيد</button>
+            </form>
+        </section>
+
+        <!-- تذييل -->
+        <footer>
+            <p>نتطلع بشوق لرؤيتكم ومشاركتكم فرحتنا 💕</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.7;">Adam & Lina Wedding Invitation</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // إخفاء شاشة الترحيب عند النقر
+        function openInvitation() {
+            const overlay = document.getElementById('welcome-overlay');
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 800);
+        }
+
+        // معالجة نموذج الحضور
+        function handleRSVP(event) {
+            event.preventDefault();
+            alert('شكراً لك! تم إرسال تأكيد حضورك بنجاح.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>

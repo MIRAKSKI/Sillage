@@ -1,0 +1,52 @@
+@media screen and (max-width: 900px) {
+  html{display: flex;justify-content: center;}
+  body {width: 100%;display: flex;justify-content: center;padding: 0;margin: 0;}
+  .karive {width: 612px;background: #f9f2e0;display: flex;flex-direction: column;place-items:center;
+    background-image: url("../themes/tlemcen/mid.png");
+    background-repeat: repeat-y;
+    background-size: contain;
+  }
+  iframe {border: 3px solid #ac9e73;width: 450px; height: 450px;}
+  .dateBox {opacity: 0;transform: translateX(-100%);filter: blur(5px);transition: all 1s;
+    background: #895;display: grid;place-items:center;border-radius: 15px;width: 90px;height: 90px;
+    color: #ac9e73;font-size: 2rem;font-weight: bold;
+  }
+  .dateBox p {margin: 0;}
+  .dateShow {opacity: 1;transform: translateX(0);filter: blur(0);}
+  .dateBox:nth-child(2) {transition-delay: 200ms;}
+  .dateBox:nth-child(3) {transition-delay: 400ms;}
+  .timelineShower {padding: 0 3px;min-height: 250px;width: 150px;display: flex;flex-direction: column;justify-content: space-between;place-items:center;
+    position: relative;
+  }
+  .timelineFix {padding: 10px 3px;min-height: 250px;width: 70px;display: flex;flex-direction: column;justify-content:space-between;
+    position: relative;place-items:center;
+  }
+}
+@media screen and (max-width: 600px) {
+  html{display: flex;justify-content: center;}
+  body {width: 92%;display: flex;justify-content: center;padding: 0;margin: 0;}
+  .karive {min-width: 360px;width: 100%;background: #f9f2e0;display: flex;flex-direction: column;place-items:center;
+    background-image: url("../themes/tlemcen/mid.png");
+    background-repeat: repeat-y;
+    background-size: contain;
+  }
+  iframe {border: 3px solid #ac9e73;width: 300px; height: 300px;}
+  .timelineHolder {display: flex;justify-content: center;background: #096;padding: 20px;
+    border-radius: 15px;width: 70%;
+  }
+  .inv-content {width: 100%;display: grid;place-items:center;padding: 14px 0;}
+  .dateBox {opacity: 0;transform: translateX(-100%);filter: blur(5px);transition: all 1s;
+    background: #895;display: grid;place-items:center;border-radius: 15px;width: 90px;height: 90px;
+    color: #ac9e73;font-size: 2rem;font-weight: bold;
+  }
+  .dateBox p {margin: 0;}
+  .dateShow {opacity: 1;transform: translateX(0);filter: blur(0);}
+  .dateBox:nth-child(2) {transition-delay: 200ms;}
+  .dateBox:nth-child(3) {transition-delay: 400ms;}
+  .timelineShower {padding: 0 3px;min-height: 250px;width: 120px;display: flex;flex-direction: column;justify-content: space-between;place-items:center;
+    position: relative;
+  }
+  .timelineFix {padding: 10px 3px;min-height: 250px;width: 60px;display: flex;flex-direction: column;justify-content:space-between;
+    position: relative;place-items:center;
+  }
+}
