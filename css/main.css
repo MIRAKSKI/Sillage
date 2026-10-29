@@ -53,7 +53,7 @@ body {margin: 0px;padding: 0px;display: flex;justify-content: center;}
   100% { transform: rotateZ(0deg)}
 }
 .riseDown:nth-child(2) {transition-delay: 0.2s;}
-.envelope {position: fixed;top: 0;bottom: 0;left: 0;right: 0;}
+.envelope {position: fixed;top: 0;bottom: 0;left: 0;right: 0;z-index: 20;}
 .paper {position: relative;width: 100%;height: 100%;}
 .envup {position: absolute;left: 0;right: 0;top: 0;width: 100%;height: 56.3%;}
 .envdown {position: absolute;left: 0;right: 0;bottom: 0;width: 100%;height: 51.5%;}
@@ -73,9 +73,9 @@ body {margin: 0px;padding: 0px;display: flex;justify-content: center;}
 
   animation: float 3s ease-in-out infinite;
 }
-.envfrt {top: 30%;left: 36%;}
-.envsec {top: 30%;left: 61%;}
-.envand {top: 30%;left: 48%;font-size: 27px;font-family: 'StampFont', serif;}
+.envfrt {top: 45%;left: 36%;}
+.envsec {top: 45%;left: 61%;}
+.envand {top: 45%;left: 48%;font-size: 27px;font-family: 'StampFont', serif;}
 @font-face {
   font-family: 'StampFont';
   src: url('../fonts/DancingScript-Bold.ttf') format('truetype');
@@ -141,3 +141,8 @@ iframe {border: 3px solid #ac9e73;width: 435px; height: 435px;}
 #bride, #gloom {font-weight: bolder;font-size: 4.2rem;color: #ac9e73;}
 #and {font-size: 2.5rem;color: #ac9e73;}
 .scrl p {font-size: 1.6rem;font-family: 'Dancing Script';font-weight: bold;color: #ac9e73;}
+.playButtonDiv {position: fixed;right: 20px;bottom:20px;border-radius: 50%;width:65px;height:65px;
+  background: #ac9e73;;z-index: 9;
+}
+.playButtonDiv{display: grid;justify-content: center;place-items:center;}
+#playButton {width: 35px;}

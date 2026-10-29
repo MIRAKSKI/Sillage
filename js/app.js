@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   if (darkmQ['matches']) {
     // document.getElementById('karive').classList.add("dark_mode");
   }
-  // StartEnvelope();
+  StartEnvelope();
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -103,6 +103,10 @@ function OpenEnvelope() {
   setTimeout(function () {
     document.getElementById('envelope').remove();
   }, 1000);
+  document.getElementById('invitation-audio').setAttribute("src", "Sounds/s1.mp3");
+  document.getElementById('invitation-audio').play();
+  document.getElementById('playButton').setAttribute("src", "img/ps.png");
+  document.querySelector('.playButtonDiv').setAttribute("onclick", "mediaControl('ps')");
 }
 function scroollMove() {
   gsap.to('#upndown', {scale:1.05, y:7, duration:1.2, repeat:-1, yoyo:true});
@@ -144,4 +148,16 @@ function creatanelemn(kng, clss, id, name, style, title, type, value, elem, oncl
     kingbck.appendChild(elem);
   }
   return kingbck
+}
+function mediaControl(media) {
+  if (media == "ps") {
+    document.getElementById('playButton').setAttribute("src", "img/pl.png");
+    document.querySelector('.playButtonDiv').setAttribute("onclick", "mediaControl('pl')");
+    document.getElementById('invitation-audio').pause();
+  }
+  else if (media == "pl") {
+    document.getElementById('playButton').setAttribute("src", "img/ps.png");
+    document.querySelector('.playButtonDiv').setAttribute("onclick", "mediaControl('ps')");
+    document.getElementById('invitation-audio').play();
+  }
 }
