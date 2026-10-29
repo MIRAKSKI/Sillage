@@ -1,6 +1,5 @@
 @media screen and (max-width: 900px) {
-  html{display: flex;justify-content: center;}
-  body {width: 100%;display: flex;justify-content: center;padding: 0;margin: 0;}
+  body {width: 100%;padding: 0;margin: 0;}
   .karive {width: 612px;background: #f9f2e0;display: flex;flex-direction: column;place-items:center;
     background-image: url("../themes/tlemcen/mid.png");
     background-repeat: repeat-y;
@@ -23,8 +22,7 @@
   }
 }
 @media screen and (max-width: 600px) {
-  html{display: flex;justify-content: center;}
-  body {width: 92%;display: flex;justify-content: center;padding: 0;margin: 0;}
+  body {width: 92%;padding: 0;margin: 0;}
   .karive {min-width: 360px;width: 100%;background: #f9f2e0;display: flex;flex-direction: column;place-items:center;
     background-image: url("../themes/tlemcen/mid.png");
     background-repeat: repeat-y;
