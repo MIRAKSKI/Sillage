@@ -17,7 +17,7 @@ body {margin: 0px;padding: 0px;display: flex;justify-content: center;}
 .arrosn p {margin: 1px 0;}
 .title {font-family: 'Dancing Script';font-size: 1.8rem;}
 .scrl img {position: absolute;top: 110%;left: 50%;transform: translate(-50%, -50%);}
-.inv-content {width: 100%;display: grid;place-items:center;padding: 14px 0;}
+.inv-content {width: 100%;display: grid;place-items:center;padding: 14px 0;text-align: center;}
 .inv-content-end {width: 100%;display: flex;flex-direction: column;justify-content: flex-end;position: relative;}
 .inv-content-str {width: 100%;min-height: 150px;display: grid;place-items:center;}
 .appearani {
@@ -152,14 +152,14 @@ body {margin: 0px;padding: 0px;display: flex;justify-content: center;}
 .timelineShower {padding: 0 3px;min-height: 250px;width: 150px;display: flex;flex-direction: column;justify-content: space-between;place-items:center;
   position: relative;
 }
-#seeuSon {font-size: 1.8rem;font-family: 'Dancing Script';font-weight: bolder;color:#ac9e73}
+#seeuSon, #DBC {font-size: 1.8rem;font-family: 'Dancing Script';font-weight: bolder;color:#ac9e73}
 iframe {border: 3px solid #ac9e73;width: 435px; height: 435px;}
 .countdown p {color: #ac9e73;}
 #TCBI, #TitleTL {font-size: 1.6rem;font-family: 'Dancing Script';font-weight: bold;color: #ac9e73;}
 #WD{color: #ac9e73;}
 #fdate {margin: 0;color: #ac9e73;}
-#bride, #and, #gloom {font-family: 'Imperial Script';}
-#bride, #gloom {font-weight: bolder;font-size: 4.2rem;color: #ac9e73;}
+#bride, #and, #groom {font-family: 'Imperial Script';}
+#bride, #groom {font-weight: bolder;font-size: 4.2rem;color: #ac9e73;}
 #and {font-size: 2.5rem;color: #ac9e73;}
 .scrl p {font-size: 1.6rem;font-family: 'Dancing Script';font-weight: bold;color: #ac9e73;}
 .playButtonDiv {position: fixed;right: 20px;bottom:20px;border-radius: 50%;width:65px;height:65px;
@@ -180,7 +180,8 @@ iframe {border: 3px solid #ac9e73;width: 435px; height: 435px;}
     width: 24px;
     will-change: transform, opacity;
 }
-.langE, .langA, .langF {display: flex;justify-content: space-between;width: 80%;}
+.langEFA {display: flex;width: 80%;position: relative;}
+.langE, .langA, .langF {display: flex;justify-content: space-between;width: 100%;position: relative;}
 .langHdS, .langHd {position: relative;transition-duration: 0.5s;width: 31%;}
 .langHdS img, .langHd img {width: 100%;}
 .langHd img {cursor: pointer;}
@@ -188,34 +189,35 @@ iframe {border: 3px solid #ac9e73;width: 435px; height: 435px;}
 .lantxt {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);text-align: center;
   margin: 0;cursor: pointer;
 }
+.langHdS {font-weight: bold;}
 .langHdS .lantxt {cursor: default;;}
 .langE:before {
   position: absolute;
   content: "";
-  height: 1%;
+  height: 10%;
   width: 20%;
-  background-color: #0D7CFF;
-  bottom: 18%;
-  left: 22%;transform: translate(-50%,0);
+  background-color: #580d0f;;
+  bottom: -5%;
+  left: 16%;transform: translate(-50%,0);
   transition: all 0.5s;
 }
 .langA:before {
   position: absolute;
   content: "";
-  height: 1%;
+  height: 10%;
   width: 20%;
-  background-color: #0D7CFF;
-  bottom: 18%;
+  background-color: #580d0f;;
+  bottom: -5%;
   left: 50%;transform: translate(-50%,0);
   transition: all 0.5s;
 }.langF:before {
   position: absolute;
   content: "";
-  height: 1%;
+  height: 10%;
   width: 20%;
-  background-color: #0D7CFF;
-  bottom: 18%;
-  left: 78%;transform: translate(-50%,0);
+  background-color: #580d0f;;
+  bottom: -5%;
+  left: 85%;transform: translate(-50%,0);
   transition: all 0.5s;
 }
 .arrowM {position: absolute;top: 70%;left: 50%;transform: translate(-50%, -50%);width: 500px;

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // document.getElementById('karive').classList.add("dark_mode");
   }
   StartEnvelope();
+  FillWebsite();
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -80,8 +81,8 @@ function StartEnvelope() {
   arrowHold.appendChild(textarw);
   let arrowMHold = creatanelemn(`div`, `arrowM`, `arrowM`, ``, ``, ``, ``, ``, arrowHold, ``, ``, ``);
   let shold = creatanelemn(`div`, `stampholder`, ``, ``, ``, ``, ``, ``, imgs, ``, ``, ``);
-  let firstletter = creatanelemn(`p`, `envfrt`, ``, ``, ``, ``, ``, ``, ``, ``, ``, `C`);
-  let seconletter = creatanelemn(`p`, `envsec`, ``, ``, ``, ``, ``, ``, ``, ``, ``, `R`);
+  let firstletter = creatanelemn(`p`, `envfrt`, ``, ``, ``, ``, ``, ``, ``, ``, ``, weddingObj["g"]);
+  let seconletter = creatanelemn(`p`, `envsec`, ``, ``, ``, ``, ``, ``, ``, ``, ``, weddingObj["b"]);
   let ands = creatanelemn(`p`, `envand`, ``, ``, ``, ``, ``, ``, ``, ``, ``, `&`);
   shold.appendChild(firstletter);shold.appendChild(ands);shold.appendChild(seconletter);
   let stamp = creatanelemn(`div`, ``, `stamp`, ``, ``, ``, ``, ``, shold, `OpenEnvelope()`, ``, ``);
@@ -219,15 +220,47 @@ function ChangeLang(lan) {
     container.setAttribute('class', 'langE');
     document.querySelector('#langConA').setAttribute('class', 'langHd');
     document.querySelector('#langConF').setAttribute('class', 'langHd');
+    document.querySelector('html').setAttribute('lang', 'en');
   }
   else if (lan == "a") {
     container.setAttribute('class', 'langA');
     document.querySelector('#langConE').setAttribute('class', 'langHd');
     document.querySelector('#langConF').setAttribute('class', 'langHd');
+    document.querySelector('html').setAttribute('lang', 'ar');
   }
   else if (lan == "f") {
     container.setAttribute('class', 'langF');
     document.querySelector('#langConA').setAttribute('class', 'langHd');
     document.querySelector('#langConE').setAttribute('class', 'langHd');
+    document.querySelector('html').setAttribute('lang', 'fr');
   }
+  if (lan == "a") {
+    document.querySelector('html').setAttribute('dir', 'rtl');
+  }
+  else {
+    document.querySelector('html').setAttribute('dir', 'ltr');
+  }
+}
+function FillWebsite() {
+  let tKeys = Object.keys(lang);
+  let idS = ["WD", "groom", "and", "bride", "scdn", "invConTxt", "TCBI", "TitleTL", "DBC", "seeuSon"];
+  for (var i = 0; i < idS.length; i++) {
+    document.querySelector(`#${idS[i]}`).innerText = lang[tKeys[i]];
+  }
+}
+let weddingObj = {
+  "g": "C",
+  "b": "R",
+}
+let lang = {
+  "event": "Wedding Day",
+  "groom": "Groom",
+  "and": "&",
+  "bride": "Bride",
+  "scrol": "Scroll Down",
+  "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "tcbi": "The Celebration Begins In",
+  "tl": "Time Line",
+  "dbc": "Don't BRING Children\n DON'T",
+  "fl": "looking forward to seeing you"
 }
