@@ -93,6 +93,8 @@ function enablescrollback() {
   document.body.classList.remove('stop-scrolling');
 }
 function OpenEnvelope() {
+  document.getElementById('stamp').style.pointerEvents = "none";
+  setTimeout(() => spawnPetals(), 600);
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
   document.getElementsByClassName('envelope')[0].classList.remove('envelopeTBG');
@@ -161,4 +163,40 @@ function mediaControl(media) {
     document.querySelector('.playButtonDiv').setAttribute("onclick", "mediaControl('ps')");
     document.getElementById('invitation-audio').play();
   }
+}
+function spawnPetals(count = 14) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const layer = document.getElementById('petalLayer');
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('img');
+      p.src = 'themes/tlemcen/petal.png'; // swap folder with your theme
+      p.className = 'petal';
+      layer.appendChild(p);
+
+      const dur = gsap.utils.random(4, 6);
+      const delay = gsap.utils.random(0, 1.5);
+
+      gsap.set(p, {
+        x: gsap.utils.random(0, w),
+        scale: gsap.utils.random(0.6, 1.2),
+        rotation: gsap.utils.random(0, 360)
+      });
+
+      gsap.to(p, {
+        y: h + 80,
+        x: '+=' + gsap.utils.random(-120, 120),
+        rotation: '+=' + gsap.utils.random(180, 540),
+        duration: dur,
+        delay: delay,
+        ease: 'sine.inOut',
+        onComplete: () => p.remove()
+      });
+
+      // fade out during the last second
+      gsap.to(p, { opacity: 0, duration: 1, delay: delay + dur - 1 });
+    }
 }
