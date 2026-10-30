@@ -20,6 +20,7 @@
   .timelineFix {padding: 10px 3px;min-height: 250px;width: 70px;display: flex;flex-direction: column;justify-content:space-between;
     position: relative;place-items:center;
   }
+  .container {width: 612px;}
 }
 @media screen and (max-width: 600px) {
   body {width: 100%;padding: 0;margin: 0;}
@@ -47,4 +48,5 @@
   .timelineFix {padding: 10px 3px;min-height: 250px;width: 60px;display: flex;flex-direction: column;justify-content:space-between;
     position: relative;place-items:center;
   }
+  .container {width: 100%;;}
 }

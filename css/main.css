@@ -10,7 +10,7 @@ body {margin: 0px;padding: 0px;display: flex;justify-content: center;}
 #inv_pro_cont {display: flex;justify-content: center;}
 .inv_pro_text {width: 70%;text-align: center;font-weight: bold;font-size: 1.2rem;color: #ac9e73;font-family: "Playfair Display";}
 .container {position: absolute;top: 20%;left: 50%;transform: translate(-50%, 0);display: flex;flex-direction: column;
-  justify-content: space-between;;place-items:center;height: 50%;
+  justify-content: space-between;;place-items:center;height: 50%;width: 500px;
 }
 .title, .scrl {display: grid;place-items:center;position: relative;}
 .arrosn {display: flex;flex-direction: column;;place-items:center;justify-content: center;}
@@ -180,3 +180,47 @@ iframe {border: 3px solid #ac9e73;width: 435px; height: 435px;}
     width: 24px;
     will-change: transform, opacity;
 }
+.langE, .langA, .langF {display: flex;justify-content: space-between;width: 80%;}
+.langHdS, .langHd {position: relative;transition-duration: 0.5s;width: 31%;}
+.langHdS img, .langHd img {width: 100%;}
+.langHd img {cursor: pointer;}
+.langHd:hover {scale:1.05;}
+.lantxt {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);text-align: center;
+  margin: 0;cursor: pointer;
+}
+.langHdS .lantxt {cursor: default;;}
+.langE:before {
+  position: absolute;
+  content: "";
+  height: 1%;
+  width: 20%;
+  background-color: #0D7CFF;
+  bottom: 18%;
+  left: 22%;transform: translate(-50%,0);
+  transition: all 0.5s;
+}
+.langA:before {
+  position: absolute;
+  content: "";
+  height: 1%;
+  width: 20%;
+  background-color: #0D7CFF;
+  bottom: 18%;
+  left: 50%;transform: translate(-50%,0);
+  transition: all 0.5s;
+}.langF:before {
+  position: absolute;
+  content: "";
+  height: 1%;
+  width: 20%;
+  background-color: #0D7CFF;
+  bottom: 18%;
+  left: 78%;transform: translate(-50%,0);
+  transition: all 0.5s;
+}
+.arrowM {position: absolute;top: 70%;left: 50%;transform: translate(-50%, -50%);width: 500px;
+  display: grid;place-items:center;
+}
+.arrowS {display: grid;place-items:center;width: 100%;}
+.arrowT {font-size: 1.5rem;font-family: 'Dancing Script';margin: 0;color: #580d0f;}
+.arrowS img {width: 60px;}

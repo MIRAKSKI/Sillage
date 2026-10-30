@@ -73,6 +73,12 @@ function StartEnvelope() {
   }
   let imgs = creatanelemn(`img`, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``);
   imgs.setAttribute("src", "envelope/stamp.png");
+  let arrow = creatanelemn(`img`, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``);
+  arrow.setAttribute("src", "envelope/d.png");
+  let textarw = creatanelemn(`p`, `arrowT`, ``, ``, ``, ``, ``, ``, ``, ``, ``, `Click to open`);
+  let arrowHold = creatanelemn(`div`, `arrowS`, ``, ``, ``, ``, ``, ``, arrow, ``, ``, ``);
+  arrowHold.appendChild(textarw);
+  let arrowMHold = creatanelemn(`div`, `arrowM`, `arrowM`, ``, ``, ``, ``, ``, arrowHold, ``, ``, ``);
   let shold = creatanelemn(`div`, `stampholder`, ``, ``, ``, ``, ``, ``, imgs, ``, ``, ``);
   let firstletter = creatanelemn(`p`, `envfrt`, ``, ``, ``, ``, ``, ``, ``, ``, ``, `C`);
   let seconletter = creatanelemn(`p`, `envsec`, ``, ``, ``, ``, ``, ``, ``, ``, ``, `R`);
@@ -80,8 +86,10 @@ function StartEnvelope() {
   shold.appendChild(firstletter);shold.appendChild(ands);shold.appendChild(seconletter);
   let stamp = creatanelemn(`div`, ``, `stamp`, ``, ``, ``, ``, ``, shold, `OpenEnvelope()`, ``, ``);
   envelope.appendChild(stamp);
+  envelope.appendChild(arrowMHold);
   document.getElementsByTagName('body')[0].appendChild(envelope);
   stampPulsing = gsap.to('#stamp', {scale:1.05, filter:'drop-shadow(0 0 8px gold)', duration:1.2, repeat:-1, yoyo:true});
+  arrowPulsing = gsap.to('#arrowM', {scale:1.05, y:-5, duration:1.2, repeat:-1, yoyo:true});
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
   disableScroll();
@@ -94,18 +102,21 @@ function enablescrollback() {
 }
 function OpenEnvelope() {
   document.getElementById('stamp').style.pointerEvents = "none";
+  document.getElementById('arrowM').style.pointerEvents = "none";
+  const hieght = window.innerHeight;
   setTimeout(() => spawnPetals(), 600);
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
   document.getElementsByClassName('envelope')[0].classList.remove('envelopeTBG');
   gsap.to('#stamp', {opacity:0, scale:0.8, duration:0.3});
+  gsap.to('#arrowM', {opacity:0, scale:0.8, duration:0.3});
   gsap.to('.envup', {rotationX: -110, transformOrigin: "top center", duration:0.8});
-  gsap.to('.envleft , .envdown , .envright', {y:50, opacity: 0, duration:0.7});
-  stampPulsing.kill();
+  gsap.to('.envleft , .envdown , .envright', {y:hieght, duration:1.1, delay:0.12});
+  stampPulsing.kill();arrowPulsing.kill();
   enablescrollback();
   setTimeout(function () {
     document.getElementById('envelope').remove();
-  }, 1000);
+  }, 2000);
   document.getElementById('invitation-audio').setAttribute("src", "Sounds/s1.mp3");
   document.getElementById('invitation-audio').play();
   document.getElementById('playButton').setAttribute("src", "img/ps.png");
@@ -199,4 +210,24 @@ function spawnPetals(count = 14) {
       // fade out during the last second
       gsap.to(p, { opacity: 0, duration: 1, delay: delay + dur - 1 });
     }
+}
+function ChangeLang(lan) {
+  let container = document.querySelector('#langCon');
+  let lanCon = document.getElementById(`langCon${lan.toUpperCase()}`);
+  lanCon.setAttribute('class', 'langHdS');
+  if (lan == "e") {
+    container.setAttribute('class', 'langE');
+    document.querySelector('#langConA').setAttribute('class', 'langHd');
+    document.querySelector('#langConF').setAttribute('class', 'langHd');
+  }
+  else if (lan == "a") {
+    container.setAttribute('class', 'langA');
+    document.querySelector('#langConE').setAttribute('class', 'langHd');
+    document.querySelector('#langConF').setAttribute('class', 'langHd');
+  }
+  else if (lan == "f") {
+    container.setAttribute('class', 'langF');
+    document.querySelector('#langConA').setAttribute('class', 'langHd');
+    document.querySelector('#langConE').setAttribute('class', 'langHd');
+  }
 }
