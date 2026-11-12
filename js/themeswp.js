@@ -1,1 +1,0 @@
-document.addEventListener('DOMContentLoaded', (event) => {strtChanger();});function strtChanger() {const themr=["tlemcen","hoggar","constantine","casbah","kabylie","gold","silver"];let i = 0;setInterval(function () {if (i < 10) {if (i == themr.length) {i = 0;}ThemeManger(themr[i]);i++;}}, 1000);}
